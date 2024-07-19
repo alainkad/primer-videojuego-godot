@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3j3y1vvpwyx3"]
+
+[ext_resource type="Script" path="res://scripts/Coin.gd" id="1_2piq8"]
+[ext_resource type="Texture2D" uid="uid://8tnj6mqjwsl2" path="res://assets/Coin Effect/01.png" id="2_qv8fl"]
+[ext_resource type="Texture2D" uid="uid://be3dkakxbxgnl" path="res://assets/Coin Effect/02.png" id="3_nepet"]
+[ext_resource type="Texture2D" uid="uid://huxjpsewu56k" path="res://assets/Coin Effect/03.png" id="4_gytph"]
+[ext_resource type="Texture2D" uid="uid://f0iytikw2fil" path="res://assets/Silver Coin/01.png" id="5_gp7hu"]
+[ext_resource type="Texture2D" uid="uid://uxewadel57yf" path="res://assets/Silver Coin/02.png" id="6_7h744"]
+[ext_resource type="Texture2D" uid="uid://derhh5c1qalx4" path="res://assets/Silver Coin/03.png" id="7_e48mk"]
+[ext_resource type="Texture2D" uid="uid://we6moh50xue3" path="res://assets/Silver Coin/04.png" id="8_mp0qf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqarr"]
+atlas = ExtResource("5_gp7hu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ib4f7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qv8fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nepet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gytph")
+}],
+"loop": false,
+"name": &"off",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqarr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7h744")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e48mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mp0qf")
+}],
+"loop": true,
+"name": &"on",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga74w"]
+size = Vector2(9, 9)
+
+[node name="Coin" type="Area2D"]
+monitorable = false
+script = ExtResource("1_2piq8")
+
+[node name="SpriteCoin" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ib4f7")
+animation = &"on"
+autoplay = "on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ga74w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

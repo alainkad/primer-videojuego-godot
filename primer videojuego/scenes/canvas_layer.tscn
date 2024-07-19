@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cggtdd3xrmjxa"]
+
+[ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="1_k15jn"]
+
+[node name="GUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_k15jn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "SCORE: 0000"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.85098, 0.109804, 0.160784, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 2
+offset_left = 106.0
+offset_top = 38.0
+offset_right = 355.0
+offset_bottom = 61.0
+text = "HAS MUERTO"
+
+[node name="Reiniciar" type="Button" parent="ColorRect"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 84.0
+offset_right = 284.0
+offset_bottom = 115.0
+text = "Reiniciar"
+
+[node name="Salir" type="Button" parent="ColorRect"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 125.0
+offset_right = 284.0
+offset_bottom = 156.0
+text = "Salir
+"
+
+[connection signal="pressed" from="ColorRect/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="ColorRect/Salir" to="." method="_on_salir_pressed"]

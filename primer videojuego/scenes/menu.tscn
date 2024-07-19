@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy8dp0yyu05el"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_h2j8f"]
+[ext_resource type="Texture2D" uid="uid://cb0gxv40vpf8j" path="res://assets/menu (1).jpeg" id="2_ijcpt"]
+
+[sub_resource type="Theme" id="Theme_65tvn"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_65tvn")
+script = ExtResource("1_h2j8f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ijcpt")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.195
+anchor_top = 0.819
+anchor_right = 0.846
+anchor_bottom = 0.943
+offset_left = 0.360001
+offset_top = 0.287964
+offset_right = -724.592
+offset_bottom = -72.064
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(30, 10)
+
+[node name="Iniciar" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+flat = true
+
+[node name="Salir" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+flat = true
+expand_icon = true
